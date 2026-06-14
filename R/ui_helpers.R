@@ -867,8 +867,8 @@ build_ui <- function() {
       tags$style(HTML(APP_CSS))
     ),
     bs4DashPage(
-      dark    = FALSE,
-      help    = FALSE,
+      dark        = FALSE,
+      help        = FALSE,
       scrollToTop = TRUE,
       
       header = bs4DashNavbar(
@@ -879,28 +879,23 @@ build_ui <- function() {
         ),
         skin = "light",
         rightUi = tagList(
-          tags$li(class = "nav-item", style = "list-style:none;",
-                  uiOutput("space_badge_nav")
-          ),
-          tags$li(class = "nav-item", style = "list-style:none;",
-                  tags$a(class = "nav-link", href = "#",
-                         actionButton("btn_home",
-                                      label = "Accueil",
-                                      icon  = icon("home"),
-                                      style = paste0(
-                                        "background: transparent;",
-                                        "border: 1px solid rgba(83,74,183,0.25);",
-                                        "color: #534AB7;",
-                                        "border-radius: 20px;",
-                                        "padding: 4px 14px;",
-                                        "font-size: 0.75rem;",
-                                        "font-weight: 500;"
-                                      )
-                         )
-                  )
+          uiOutput("space_badge_nav"),
+          actionButton("btn_home",
+                       label = "Accueil",
+                       icon  = icon("home"),
+                       style = paste0(
+                         "background: transparent;",
+                         "border: 1px solid rgba(83,74,183,0.25);",
+                         "color: #534AB7;",
+                         "border-radius: 20px;",
+                         "padding: 4px 14px;",
+                         "font-size: 0.75rem;",
+                         "font-weight: 500;",
+                         "margin-right: 8px;"
+                       )
           )
         )
-      ),
+      ),  # <-- fermeture bs4DashNavbar
       
       sidebar = bs4DashSidebar(
         skin   = "dark",
