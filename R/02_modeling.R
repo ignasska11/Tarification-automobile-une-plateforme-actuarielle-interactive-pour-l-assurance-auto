@@ -141,7 +141,7 @@ xgb_sev <- xgb.train(
 
 # -- Predictions
 pred_gamma   <- predict(mod_gamma, newdata = as.data.frame(test_sev), type = "response")
-pred_lognorm <- exp(predict(mod_lognorm, newdata = as.data.frame(test_sev)) + sigma2_logn / 2)
+pred_lognorm <- exp(predict(mod_lognorm, newdata = as.data.frame(test_sev)) + sigma2_logn / 2) # c'est la correction théorique qui restaure une estimation non biaisée de la moyenne.
 pred_xgb_sev <- exp(predict(xgb_sev, dte_s))
 y_s          <- test_sev$ClaimAmount
 
